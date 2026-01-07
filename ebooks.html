@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Books - SDM Foundation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ಇ-ಬುಕ್ ಕಾರ್ಡ್‌ಗಳ ವಿನ್ಯಾಸ */
+    .ebook-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 40px 0;
+    }
+    .ebook-card {
+        background: white;
+        border: 1px solid #c5a059;
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding-bottom: 20px;
+    }
+    .ebook-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    .ebook-cover {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-bottom: 2px solid #f5e9d4;
+    }
+    .ebook-info {
+        padding: 15px;
+    }
+    .ebook-title {
+        font-size: 1.2rem;
+        color: #800000;
+        font-weight: bold;
+        margin-bottom: 10px;
+        height: 50px;
+        overflow: hidden;
+    }
+    .btn-download {
+        background-color: #800000;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-block;
+        transition: 0.3s;
+    }
+    .btn-download:hover {
+        background-color: #c5a059;
+        color: #800000;
+    }
+    .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        color: #800000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container" style="padding: 20px 0;">
+        <h1 data-kn="ಡಿಜಿಟಲ್ ಇ-ಪುಸ್ತಕಗಳ ಸಂಗ್ರಹ" data-en="Digital E-Books Collection">
+            ಡಿಜಿಟಲ್ ಇ-ಪುಸ್ತಕಗಳ ಸಂಗ್ರಹ
+        </h1>
+        <a href="index.html" class="back-link">← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ (Back to Home)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="ebook-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
+        <script>
+            const books = [
+                { id: 1, title: "ಯಕ್ಷಗಾನ ಹಸ್ತಪ್ರತಿಗಳ ವಿವರಣಾ ಸೂಚಿ ಸಂ: ೧", year: 1993, ed: "ಪ್ರೊ.ಗೌ.ಮ. ಉಮಾಪತಿ ಶಾಸ್ತ್ರಿ" },
+                { id: 2, title: "ತುಳು ಲಿಪಿ ಹಸ್ತಪ್ರತಿಗಳ ಸೂಚಿ", year: 1997, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 3, title: "ಕನ್ನಡ ಹಸ್ತಪ್ರತಿಗಳ ಸಾಮಾನ್ಯ ಸೂಚಿ ಭಾಗ -೧", year: 2000, ed: "ಪ್ರೊ.ಗೌ.ಮ. ಉಮಾಪತಿ ಶಾಸ್ತ್ರಿ" },
+                { id: 4, title: "ಕಲ್ಲಚ್ಚಿನ ಕನ್ನಡ ಹೊತ್ತಗೆಗಳ ವಿವರಣ ಸೂಚಿ", year: 2004, ed: "ಪ್ರೊ.ಗೌ.ಮ. ಉಮಾಪತಿ ಶಾಸ್ತ್ರಿ" },
+                { id: 5, title: "ಭಾಗವತಾಂತರ್ಗತ ತುಳು ರಾಮಾಯಣ", year: 2005, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 7, title: "ಗೊಮ್ಮಟೇಶ್ವರ ಚರಿತೆ", year: 2007, ed: "ಡಾ. ಎಸ್.ಡಿ ಶೆಟ್ಟಿ" },
+                { id: 8, title: "ಯಕ್ಷಗಾನ ಹಸ್ತಪ್ರತಿಗಳ ವಿವರಣಾ ಸೂಚಿ ಸಂ: ೨", year: 2008, ed: "ಪ್ರೊ.ಗೌ.ಮ. ಉಮಾಪತಿ ಶಾಸ್ತ್ರಿ" },
+                { id: 9, title: "ಸಂಸ್ಕೃತ ಹಸ್ತಪ್ರತಿಗಳ ಸೂಚಿ ಭಾಗ-೧", year: 2009, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 10, title: "ಸಂಸ್ಕೃತ ಹಸ್ತಪ್ರತಿಗಳ ಸೂಚಿ ಭಾಗ-೨", year: 2012, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 11, title: "ಶ್ರೀ ರಾಮಚಂದ್ರ ಚರಿತ ಪುರಾಣ", year: 2015, ed: "ಡಾ. ಎಸ್.ಡಿ ಶೆಟ್ಟಿ" },
+                { id: 12, title: "ಕನ್ನಡ ಹಸ್ತಪ್ರತಿಗಳ ಸೂಚಿ", year: 2017, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 13, title: "ಪ್ರಾಚೀನ ಭಾರತೀಯ ಲಿಪಿಗಳು", year: 2020, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 14, title: "ಜೈನ ಗ್ರಂಥಸ್ಥ ಹಾಡುಗಳು", year: 2021, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 15, title: "ವಿನಾಯಕ ಹವನ ಷೋಡಶಸಂಸ್ಕಾರ ವಿಧಿ", year: 2022, ed: "ಡಾ.ಎಸ್.ಆರ್.ವಿಘ್ನರಾಜ" },
+                { id: 16, title: "Ayurveda Sangraha", year: 2023, ed: "ಡಾ. ಎಸ್. ಆರ್. ವಿಘ್ನರಾಜ" },
+                { id: 17, title: "ಭೈರವೇಶ್ವರ ಪುರಾಣ", year: 2023, ed: "ಡಾ. ಎಸ್. ಆರ್. ವಿಘ್ನರಾಜ" },
+                { id: 18, title: "ವೈದ್ಯಾಮೃತ", year: 2023, ed: "ಡಾ. ಪವನ್ ಭಟ್" },
+                { id: 19, title: "ಶ್ರೀ ವೃಷಭೇಶ್ವರ ಪುರಾಣಂ", year: 2025, ed: "ಡಾ. ಎಸ್.ಆರ್. ವಿಘ್ನರಾಜ" },
+                { id: 20, title: "ಸಾಳುವಾಂಕನ ಚರಿತೆ", year: 2021, ed: "ಡಾ.ಪವನ್ ಭಟ್" },
+                { id: 21, title: "ಪಶುವೈದ್ಯ", year: 2022, ed: "ಡಾ.ಪವನ್ ಭಟ್" },
+                { id: 22, title: "ಸುಭಾಷಿತಗಳು", year: 2022, ed: "ಡಾ.ಪವನ್ ಭಟ್" }
+            ];
+
+            const grid = document.querySelector('.ebook-grid');
+            books.forEach(b => {
+                grid.innerHTML += `
+                <div class="ebook-card" style="border: 2px solid #D4AF37; padding: 15px; border-radius: 10px; text-align: center; background: #fff;">
+                    <div style="font-size: 40px; color: #c5a059;">📖</div>
+                    <h3 style="color: #800000; font-size: 1rem; height: 45px; overflow: hidden;">${b.title}</h3>
+                    <p style="font-size: 0.8rem; color: #555;">ವರ್ಷ: ${b.year}<br>ಸಂಪಾದಕರು: ${b.ed}</p>
+                    <a href="#" class="btn-download" style="background: #800000; color: #D4AF37; padding: 5px 10px; text-decoration: none; border-radius: 5px; font-size: 0.8rem;">Download PDF</a>
+                </div>`;
+            });
+        </script>
+    </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 ಶ್ರೀ ಮಂಜುನಾಥೇಶ್ವರ ಸಂಸ್ಕೃತಿ ಮತ್ತು ಸಂಶೋಧನಾ ಪ್ರತಿಷ್ಠಾನ</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿let catalogData = [
+  {
+    "Sl.No": 1,
+    "Ass.No": "A001",
+    "Title": "ರಾಮಾಯಣ ಹಸ್ತಪ್ರತಿ",
+    "Author": "ವಾಲ್ಮೀಕಿ",
+    "Subject": "ಇತಿಹಾಸ",
+    "Material": "ತಾಳೆಗರಿ",
+    "Script": "ಕನ್ನಡ"
+  },
+  // ... catalog.json ALL 10,000 records copy
+  {
+    "Sl.No": 10000,
+    ...
+  }
+];  // ← END + semicolon
+
+let fullCatalog = [];  // original continues
